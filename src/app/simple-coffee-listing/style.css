@@ -1,0 +1,88 @@
+.coffee-listing {
+  background: url(../../public/01/bg-cafe.jpg), #111315;
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: white;
+  padding: 92px;
+  padding-top: 184px;
+}
+
+.coffee-listing-section {
+  background: url(../../public/01/vector.svg), #1b1d1f;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 56% 32px;
+  padding: 68px 134px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 16px;
+}
+
+.coffee-listing-section h1 {
+  font-size: 32px;
+  color: #fef7ee;
+}
+
+.coffee-listing-section-description {
+  color: #6f757c;
+  font-size: 12px;
+  width: 380px;
+  text-align: center;
+  margin: 8px 0 26px 0;
+}
+
+.coffee-listing-section-options-option {
+  font-size: 16px;
+  color: #fef7ee;
+  margin: 0 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.coffee-listing-section-options-option.selected {
+  background: #6f757c;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+.coffee-listing-section-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 48px;
+  row-gap: 64px;
+  column-gap: 32px;
+}
+
+@media (max-width: 1024px) {
+  .coffee-listing-section {
+    padding: 68px;
+  }
+
+  .coffee-listing-section-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .coffee-listing {
+    padding: 48px;
+  }
+
+  .coffee-listing-section {
+    padding: 48px;
+  }
+
+  .coffee-listing-section-description {
+    width: 100%;
+  }
+
+  .coffee-listing-section-options-option {
+    font-size: 12px;
+  }
+
+  .coffee-listing-section-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

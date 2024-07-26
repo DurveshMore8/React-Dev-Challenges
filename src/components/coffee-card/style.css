@@ -1,0 +1,169 @@
+.coffee-card {
+  width: 100%;
+  border-radius: 14px;
+  position: relative;
+}
+
+.coffee-card-popular {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #1b1d1f;
+  background: #f6c768;
+  padding: 4px 16px;
+  border-radius: 12px;
+}
+
+.coffee-card img {
+  width: 100%;
+  border-radius: 14px;
+}
+
+.coffee-card-details-one {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.coffee-card-details-one h4 {
+  font-size: 14px;
+  color: #fef7ee;
+}
+
+.coffee-card-details-one span {
+  background: #bee3cc;
+  width: 56px;
+  height: 28px;
+  border-radius: 4px;
+  color: #1b1d1f;
+  font-weight: 800;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.coffee-card-details-two {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.coffee-card-details-two-ratings {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.coffee-card-details-two-ratings img {
+  width: 16px;
+  height: 16px;
+}
+
+.coffee-card-details-two-ratings-rate {
+  font-size: 14px;
+  font-weight: 600;
+  color: #FEF7EE;
+}
+
+.coffee-card-details-two-ratings-votes {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6F757C;
+}
+
+.coffee-card-details-two-sold {
+  color: #ED735D;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.coffee-card {
+  width: 100%;
+  border-radius: 14px;
+  position: relative;
+}
+
+.coffee-card-popular {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #1b1d1f;
+  background: #f6c768;
+  padding: 4px 16px;
+  border-radius: 12px;
+}
+
+.coffee-card img {
+  width: 100%;
+  border-radius: 14px;
+}
+
+.coffee-card-details-one {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.coffee-card-details-one h4 {
+  font-size: 14px;
+  color: #fef7ee;
+}
+
+.coffee-card-details-one span {
+  background: #bee3cc;
+  width: 56px;
+  height: 28px;
+  border-radius: 4px;
+  color: #1b1d1f;
+  font-weight: 800;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.coffee-card-details-two {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.coffee-card-details-two-ratings {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.coffee-card-details-two-ratings img {
+  width: 16px;
+  height: 16px;
+}
+
+.coffee-card-details-two-ratings-rate {
+  font-size: 14px;
+  font-weight: 600;
+  color: #FEF7EE;
+}
+
+.coffee-card-details-two-ratings-votes {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6F757C;
+}
+
+.coffee-card-details-two-sold {
+  color: #ED735D;
+  font-size: 12px;
+  font-weight: 600;
+}

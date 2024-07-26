@@ -6,14 +6,16 @@ export const metadata: Metadata = {
   description: "Completed the challenges provided by devchallenges.io",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+interface HomeLayoutProps {
+  children: Readonly<React.ReactNode>;
+}
+
+const HomeLayout: React.FunctionComponent<HomeLayoutProps> = ({ children }) => {
   return (
     <html lang="en">
       <body>{children}</body>
     </html>
   );
-}
+};
+
+export default HomeLayout;
