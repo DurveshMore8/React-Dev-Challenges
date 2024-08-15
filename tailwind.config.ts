@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { PluginAPI } from "tailwindcss/types/config";
 
 const config: Config = {
   content: [
@@ -9,12 +10,20 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "translate-app-bg": "url('/02/hero_img.jpg')",
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addComponents }: PluginAPI) {
+      addComponents({
+        ".icon-button": {
+          border: "3px solid #4D5562",
+          padding: "6px",
+          borderRadius: "0.75rem",
+        },
+      });
+    },
+  ],
 };
 export default config;

@@ -1,6 +1,6 @@
 import { DM_Sans } from "next/font/google";
 import coffee_data from "../../public/01/data.json";
-import CoffeeCard from "@/components/coffee-card";
+import CoffeeCard from "@/components/cards/coffee-card";
 import "./style.css";
 
 const dmSans = DM_Sans({

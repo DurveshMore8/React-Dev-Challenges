@@ -8,6 +8,10 @@ const Home: React.FunctionComponent<HomeProps> = () => {
       name: "Simple Coffee Listing",
       link: "/simple-coffee-listing",
     },
+    {
+      name: "Translate App",
+      link: "/translate-app",
+    },
   ];
 
   return (
