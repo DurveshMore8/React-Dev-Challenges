@@ -4,6 +4,7 @@ import Copy from "@/components/icons/Copy";
 import SortAlfa from "@/components/icons/SortAlfa";
 import Speaker from "@/components/icons/Speaker";
 import TranslateLogo from "@/components/icons/TranslateLogo";
+import { languagesISOList } from "@/data/languages";
 import { DM_Sans } from "next/font/google";
 import { ChangeEvent, ClipboardEvent, useState } from "react";
 
@@ -26,9 +27,16 @@ const dmSans = DM_Sans({
 interface TranslateAppProps {}
 
 const TranslateApp: React.FunctionComponent<TranslateAppProps> = () => {
+  // holds text on both the text fields
   const [textOne, setTextOne] = useState<string>("");
   const [textTwo, setTextTwo] = useState<string>("");
 
+  // language to be entered
+  const [enterLang, setEnterLang] = useState<string>("en");
+  // langugage to be translated into
+  const [translateLang, setTranslateLang] = useState<string>("fr");
+
+  // handles text in the field
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     const maxLength = 500;
 
@@ -41,6 +49,7 @@ const TranslateApp: React.FunctionComponent<TranslateAppProps> = () => {
     }
   };
 
+  // handles paste mechnaism to prevent from words overflow in input
   const handlePaste = (e: ClipboardEvent<HTMLTextAreaElement>) => {
     const maxLength = 500;
     const clipboardData = e.clipboardData;
@@ -67,6 +76,37 @@ const TranslateApp: React.FunctionComponent<TranslateAppProps> = () => {
     }
   };
 
+  // handle translate and show output to second textfield
+  const handleTranslateClick = async () => {
+    const response = await fetch(
+      `https://api.mymemory.translated.net/get?q=${textOne}&langpair=${enterLang}|${translateLang}`
+    );
+
+    if (response.status == 200) {
+      const data = await response.json();
+
+      const translatedText = data.responseData.translatedText;
+
+      setTextTwo(translatedText);
+    }
+  };
+
+  // handle audio button click to convert text to speech
+  const handleTextToAudio = (text: string) => {
+    if ("speechSynthesis" in window) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      speechSynthesis.speak(utterance);
+    } else {
+      alert("Your browser does not support text-to-speech conversion.");
+    }
+  };
+
+  // handles copying text to clipboard
+  const handleCopyClick = async (text: string) => {
+    await navigator.clipboard.writeText(text);
+    alert("Text copied to clipboard!");
+  };
+
   return (
     <main
       className={`${dmSans.className} h-screen bg-translate-app-bg bg-cover flex justify-center items-center flex-col px-[72px] relative`}
@@ -79,10 +119,47 @@ const TranslateApp: React.FunctionComponent<TranslateAppProps> = () => {
         <div className="bg-[#212936dd] w-full border-2 border-[#3c424f] border-solid rounded-3xl p-6">
           <div className="flex gap-8 items-center text-[#6a707d] font-semibold text-sm">
             <button>Detect Language</button>
-            <button className="bg-[#4d5463] text-[#F9FAFB] px-3 py-1.5 rounded-xl">
+            <button
+              onClick={() => setEnterLang("en")}
+              className={`${
+                enterLang === "en" ? "bg-[#4d5463]" : "bg-transparent"
+              } ${
+                enterLang === "en" ? "text-[#F9FAFB]" : "bg-transparent"
+              } px-3 py-1.5 rounded-xl`}
+            >
               English
             </button>
-            <button>French</button>
+            <button
+              onClick={() => setEnterLang("fr")}
+              className={`${
+                enterLang === "fr" ? "bg-[#4d5463]" : "bg-transparent"
+              } ${
+                enterLang === "fr" ? "text-[#F9FAFB]" : "bg-transparent"
+              } px-3 py-1.5 rounded-xl`}
+            >
+              French
+            </button>
+            <select
+              onChange={(e) => setEnterLang(e.target.value)}
+              className={`${
+                enterLang !== "en" && enterLang !== "fr"
+                  ? "bg-[#4d5463]"
+                  : "bg-transparent"
+              } ${
+                enterLang !== "en" && enterLang !== "fr"
+                  ? "text-[#F9FAFB]"
+                  : "bg-transparent"
+              } border-none outline-none px-3 py-1.5 rounded-xl w-28`}
+            >
+              {languagesISOList.map((lang, index) => {
+                if (lang.language !== "en" && lang.language !== "fr")
+                  return (
+                    <option key={index} value={lang.isoCode}>
+                      {lang.language}
+                    </option>
+                  );
+              })}
+            </select>
           </div>
           <hr className="border border-[#3c424f] border-solid my-4" />
           <textarea
@@ -97,13 +174,22 @@ const TranslateApp: React.FunctionComponent<TranslateAppProps> = () => {
             {textOne.length}/500
           </span>
           <div className="flex">
-            <button className="flex-shrink-0 icon-button">
+            <button
+              className="flex-shrink-0 icon-button"
+              onClick={() => handleTextToAudio(textOne)}
+            >
               <Speaker />
             </button>
-            <button className="flex-shrink-0 ml-2 icon-button">
+            <button
+              className="flex-shrink-0 ml-2 icon-button"
+              onClick={() => handleCopyClick(textOne)}
+            >
               <Copy />
             </button>
-            <button className="ml-auto flex items-center gap-1.5 bg-[#3662E3] border border-[#7CA9F3] text-[#F9FAFB] font-semibold text-sm rounded-lg px-4 py-1.5">
+            <button
+              onClick={handleTranslateClick}
+              className="ml-auto flex items-center gap-1.5 bg-[#3662E3] border border-[#7CA9F3] text-[#F9FAFB] font-semibold text-sm rounded-lg px-4 py-1.5"
+            >
               <SortAlfa />
               Translate
             </button>
@@ -112,11 +198,47 @@ const TranslateApp: React.FunctionComponent<TranslateAppProps> = () => {
         {/* Box 2 */}
         <div className="bg-[#121826dd] w-full border-2 border-[#3c424f] border-solid rounded-3xl p-6">
           <div className="flex gap-8 items-center text-[#6a707d] font-semibold text-sm">
-            <button>English</button>
-            <button className="bg-[#4d5463] text-[#F9FAFB] px-3 py-1.5 rounded-xl">
+            <button
+              onClick={() => setTranslateLang("en")}
+              className={`${
+                translateLang === "en" ? "bg-[#4d5463]" : "bg-transparent"
+              } ${
+                translateLang === "en" ? "text-[#F9FAFB]" : "bg-transparent"
+              } px-3 py-1.5 rounded-xl`}
+            >
+              English
+            </button>
+            <button
+              onClick={() => setTranslateLang("fr")}
+              className={`${
+                translateLang === "fr" ? "bg-[#4d5463]" : "bg-transparent"
+              } ${
+                translateLang === "fr" ? "text-[#F9FAFB]" : "bg-transparent"
+              } px-3 py-1.5 rounded-xl`}
+            >
               French
             </button>
-            <button>Spanish</button>
+            <select
+              onChange={(e) => setTranslateLang(e.target.value)}
+              className={`${
+                translateLang !== "en" && translateLang !== "fr"
+                  ? "bg-[#4d5463]"
+                  : "bg-transparent"
+              } ${
+                translateLang !== "en" && translateLang !== "fr"
+                  ? "text-[#F9FAFB]"
+                  : "bg-transparent"
+              } border-none outline-none px-3 py-1.5 rounded-xl w-28`}
+            >
+              {languagesISOList.map((lang, index) => {
+                if (lang.language !== "en" && lang.language !== "fr")
+                  return (
+                    <option key={index} value={lang.isoCode}>
+                      {lang.language}
+                    </option>
+                  );
+              })}
+            </select>
           </div>
           <hr className="border border-[#3c424f] border-solid my-4" />
           <textarea
@@ -132,10 +254,16 @@ const TranslateApp: React.FunctionComponent<TranslateAppProps> = () => {
             {textOne.length}/500
           </span>
           <div className="flex">
-            <button className="flex-shrink-0 icon-button">
+            <button
+              className="flex-shrink-0 icon-button"
+              onClick={() => handleTextToAudio(textTwo)}
+            >
               <Speaker />
             </button>
-            <button className="flex-shrink-0 ml-2 icon-button">
+            <button
+              className="flex-shrink-0 ml-2 icon-button"
+              onClick={() => handleCopyClick(textTwo)}
+            >
               <Copy />
             </button>
           </div>
