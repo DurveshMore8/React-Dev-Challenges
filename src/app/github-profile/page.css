@@ -29,7 +29,7 @@
 }
 
 .github-stats-detail-numbers {
-  margin-left: 48px;
+  margin-left: 32px;
   margin-top: 12px;
   height: 56px;
   display: flex;
@@ -37,7 +37,7 @@
 }
 
 .github-stats-detail-numbers-card {
-  padding: 8px 28px;
+  padding: 8px 18px;
   background-color: #111728;
   border-radius: 16px;
   display: flex;
@@ -52,7 +52,7 @@
   width: 1px;
   height: 40px;
   background-color: #4A5567;
-  margin: 0 18px;
+  margin: 0 14px;
 }
 
 .github-stats-details-numbers-card-number {
@@ -125,4 +125,27 @@
   font-size: 12px;
   font-weight: 600;
   margin-left: 12px;
+}
+
+@media (max-width: 1024px) {
+  .github-stats {
+    padding: 0 72px;
+  }
+
+  .github-top {
+    padding-left: 72px;
+    padding-right: 72px;
+  }
+}
+
+@media (max-width: 640px) {
+  .github-stats-detail-numbers {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+  }
+
+  .github-stats-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
