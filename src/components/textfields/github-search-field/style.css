@@ -1,0 +1,17 @@
+.github-search-field {
+  width: 580px;
+  padding: 16px;
+  background: #20293a;
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+}
+
+.github-search-field-input {
+  width: 100%;
+  margin-left: 16px;
+  background: transparent;
+  outline: none;
+  color: #97A3B6;
+  caret-color: #97A3B6;
+}

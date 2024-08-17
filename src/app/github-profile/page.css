@@ -1,0 +1,128 @@
+.github {
+  background: #20293a;
+  padding-bottom: 24px;
+}
+
+.github-top {
+  background: url(../../../public/03/hero-image-github-profile.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding-top: 40px;
+}
+
+.github-stats {
+  padding: 0 152px;
+}
+
+.github-stats-detail {
+  display: flex;
+}
+
+.github-stats-detail-image {
+  border-radius: 20px;
+  border: 10px solid #20293a;
+  margin-top: -48px;
+}
+
+.github-stats-detail-numbers {
+  margin-left: 48px;
+  margin-top: 12px;
+  height: 56px;
+  display: flex;
+  gap: 24px;
+}
+
+.github-stats-detail-numbers-card {
+  padding: 8px 28px;
+  background-color: #111728;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.github-stats-details-numbers-card-text {
+  color: #4A5567;
+}
+
+.github-stats-details-numbers-card-divider {
+  width: 1px;
+  height: 40px;
+  background-color: #4A5567;
+  margin: 0 18px;
+}
+
+.github-stats-details-numbers-card-number {
+  color: #CDD5E0;
+  font-weight: 600;
+}
+
+.github-stats-header {
+  margin: 24px 0;
+}
+
+.github-stats-header-title {
+  font-size: 32px;
+  color: #CDD5E0;
+  font-weight: 600;
+}
+
+.github-stats-header-body {
+  color: #97A3B6;
+  font-size: 18px;
+}
+
+.github-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.github-stats-profile-card {
+  width: 100%;
+  border-radius: 10px;
+  padding: 24px;
+  background: linear-gradient(to right, #111728, #1d1b47);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.github-profile-card-name {
+  color: #CDD5E0;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.github-profile-card-description {
+  color: #97A3B6;
+}
+
+.github-profile-card-stats {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.github-profile-card-stats-div {
+  display: flex;
+  gap: 4px;
+}
+
+.github-profile-card-stats-div-text {
+  color: #97A3B6;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.github-profile-card-stats-updated {
+  color: #97A3B6;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 12px;
+}
