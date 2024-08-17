@@ -1,5 +1,3 @@
-"use client";
-
 import { FunctionComponent, Suspense, use } from "react";
 import "./page.css";
 import { Be_Vietnam_Pro } from "next/font/google";
