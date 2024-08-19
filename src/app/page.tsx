@@ -21,6 +21,11 @@ const Home: React.FunctionComponent<HomeProps> = () => {
       link: "/github-profile",
       image: "/thumbnail/03.png",
     },
+    {
+      name: "Country Page",
+      link: "/country-page",
+      image: "/thumbnail/04.png",
+    },
   ];
 
   return (

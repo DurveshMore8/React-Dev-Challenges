@@ -1,0 +1,168 @@
+.country {
+  background: url(../../../public/04/hero-image-wr.jpg) #1a1a1c;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 40px;
+  padding-bottom: 40px;
+}
+
+.country-logo {
+  margin: 80px 0;
+}
+
+.country-box {
+  width: 100%;
+  background-color: #1d1c1f;
+  border: 2px solid #202227;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.country-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.country-head h3 {
+  color: #53565f;
+  font-weight: 700;
+}
+
+.country-search {
+  width: 400px;
+  background-color: #292a30;
+  display: flex;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.country-search input {
+  width: 100%;
+  background-color: transparent;
+  margin-left: 12px;
+  color: #D2D5DA;
+  outline: none;
+}
+
+.country-search input::placeholder {
+  color: #6C727F;
+  font-weight: 500;
+}
+
+.country-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 24px;
+}
+
+.country-filter {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.country-filter-param {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.country-filter-dropdown {
+  background: url(../../../public/04/Expand_down.svg);
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 270px;
+  outline: none;
+  color: #D2D5DA;
+  border: 3px solid #292a30;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 500;
+  appearance: none;
+}
+
+.country-filter-label {
+  font-size: 12px;
+  color: #53565f;
+  font-weight: 700;
+}
+
+.country-filter-region button {
+  background-color: transparent;
+  color: #53565f;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+  margin-right: 12px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.country-filter-region button.selected {
+  background-color: #292a30;
+  color: #D2D5DA;
+}
+
+.country-filter-check {
+  display: flex;
+  gap: 12px;
+}
+
+.country-filter-check input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: transparent;
+  border: 2px solid #6C727F;
+  border-radius: 6px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.country-filter-check input:checked {
+  background-color: #4E80EE;
+  border: 2px solid #4E80EE;
+  background-image: url(../../../public/04/Done_round.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px;
+}
+
+.country-filter-check span {
+  color: #D2D5DA;
+}
+
+.country-table {
+  width: calc(100% - 324px);
+  border-collapse: collapse;
+  overflow: scroll;
+  text-align: left;
+}
+
+.country-table thead {
+  font-size: 12px;
+  color: #53565f;
+  font-weight: 700;
+  border-bottom: 3px solid #292a30;
+}
+
+.country-table thead tr th {
+  padding-bottom: 24px;
+}
+
+.country-table tbody {
+  color: #D2D5DA;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.country-table tbody tr td {
+  margin-top: 24px;
+  padding-top: 24px;
+}
